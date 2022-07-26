@@ -11,7 +11,7 @@ import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core';
 
 import { AppDataSource } from './database/connection';
 import { ContactResolver } from './resolvers/contactResolver';
-import { seedDatabase } from "./helpers/defaultUser";
+// import { seedDatabase } from "./helpers/defaultUser";
 import { UserResolver } from './resolvers/userResolver';
 
 // register 3rd party IOC container
@@ -25,7 +25,7 @@ import { UserResolver } from './resolvers/userResolver';
     AppDataSource.initialize()
     .then(async() => {
     // seed database with some data
-    const { defaultUser } = await seedDatabase();
+    // const { defaultUser } = await seedDatabase();
 
     // build TypeGraphQL executable schema
     const schema = await buildSchema({

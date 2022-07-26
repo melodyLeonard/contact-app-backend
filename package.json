@@ -32,7 +32,7 @@
     "dev:ts": "ts-node-dev --respawn src/index.ts",
     "dev": "nodemon -w src --ext ts --exec ts-node src/index.ts",
     "postinstall": "tsc",
-    "watch-ts": "tsc -w",
-    "start": "tsc && node dist/index.js"
+    "build": "tsc -p .",
+    "start": "tsc -p . && ts-node dist/index.js"
   }
 }

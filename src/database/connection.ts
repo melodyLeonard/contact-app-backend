@@ -7,7 +7,7 @@ import {DataSource} from 'typeorm';
       password: "90f87aeb11dc269ecd9c24c0a2e46fed3eef7a0cc14a6d0f705150957879349a", // and password
       port: 5432, // and port
       host: "localhost", // and host
-      entities: ["./src/entities/*{.ts,.js}"],
+      entities: [__dirname + "/../entities/*{.ts, .js}"],
       subscribers: [],
       migrations: [],
       synchronize: true,

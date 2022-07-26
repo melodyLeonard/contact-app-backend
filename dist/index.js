@@ -50,7 +50,7 @@ var apollo_server_express_1 = require("apollo-server-express");
 var apollo_server_core_1 = require("apollo-server-core");
 var connection_1 = require("./database/connection");
 var contactResolver_1 = require("./resolvers/contactResolver");
-var defaultUser_1 = require("./helpers/defaultUser");
+// import { seedDatabase } from "./helpers/defaultUser";
 var userResolver_1 = require("./resolvers/userResolver");
 // register 3rd party IOC container
 (0, typeorm_1.useContainer)(typedi_1.Container);
@@ -62,17 +62,14 @@ function bootstrap() {
     try {
         connection_1.AppDataSource.initialize()
             .then(function () { return __awaiter(_this, void 0, void 0, function () {
-            var defaultUser, schema, server, PORT;
+            var schema, server, PORT;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, (0, defaultUser_1.seedDatabase)()];
+                    case 0: return [4 /*yield*/, (0, type_graphql_1.buildSchema)({
+                            resolvers: [contactResolver_1.ContactResolver, userResolver_1.UserResolver],
+                            container: typedi_1.Container,
+                        })];
                     case 1:
-                        defaultUser = (_a.sent()).defaultUser;
-                        return [4 /*yield*/, (0, type_graphql_1.buildSchema)({
-                                resolvers: [contactResolver_1.ContactResolver, userResolver_1.UserResolver],
-                                container: typedi_1.Container,
-                            })];
-                    case 2:
                         schema = _a.sent();
                         server = new apollo_server_express_1.ApolloServer({
                             schema: schema,
@@ -86,11 +83,11 @@ function bootstrap() {
                         });
                         PORT = process.env.PORT || 4000;
                         return [4 /*yield*/, server.start()];
-                    case 3:
+                    case 2:
                         _a.sent();
                         server.applyMiddleware({ app: app, path: '/api/v1' });
                         return [4 /*yield*/, new Promise(function (resolve) { return httpServer.listen({ port: PORT }, resolve); })];
-                    case 4:
+                    case 3:
                         _a.sent();
                         console.log("\uD83D\uDE80 Server ready at localhost:4000/".concat(server.graphqlPath));
                         return [2 /*return*/];
