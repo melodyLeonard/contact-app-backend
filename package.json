@@ -33,6 +33,6 @@
     "dev": "nodemon -w src --ext ts --exec ts-node src/index.ts",
     "postinstall": "tsc",
     "build": "tsc -p .",
-    "start": "tsc -p . && ts-node dist/index.js"
+    "start": "tsc -p . && node dist/index.js"
   }
 }
