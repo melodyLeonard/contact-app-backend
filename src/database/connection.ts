@@ -15,4 +15,5 @@ import {DataSource} from 'typeorm';
       logging: false,
       dropSchema: false,
       cache: true,
+      ssl: true
     });
