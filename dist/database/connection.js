@@ -8,7 +8,7 @@ exports.AppDataSource = new typeorm_1.DataSource({
     username: "kumftsbsclqfmz",
     password: "90f87aeb11dc269ecd9c24c0a2e46fed3eef7a0cc14a6d0f705150957879349a",
     port: 5432,
-    host: "localhost",
+    host: "ec2-3-217-14-181.compute-1.amazonaws.com",
     entities: [__dirname + "/../entities/*{.ts, .js}"],
     subscribers: [],
     migrations: [],
@@ -17,4 +17,10 @@ exports.AppDataSource = new typeorm_1.DataSource({
     logging: false,
     dropSchema: false,
     cache: true,
+    ssl: true,
+    extra: {
+        ssl: {
+            rejectUnauthorized: false
+        }
+    }
 });

@@ -47,7 +47,7 @@ import { UserResolver } from './resolvers/userResolver';
     await server.start();
     server.applyMiddleware({ app, path: '/api/v1' });
     await new Promise<void>((resolve) => httpServer.listen({ port: PORT }, resolve));
-    console.log(`🚀 Server ready at localhost:4000/${server.graphqlPath}`);
+    console.log(`🚀 Server ready at  https://contact-api-expectoo.herokuapp.com${server.graphqlPath}`);
     })
   
   } catch (err) {

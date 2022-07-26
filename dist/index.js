@@ -89,7 +89,7 @@ function bootstrap() {
                         return [4 /*yield*/, new Promise(function (resolve) { return httpServer.listen({ port: PORT }, resolve); })];
                     case 3:
                         _a.sent();
-                        console.log("\uD83D\uDE80 Server ready at localhost:4000/".concat(server.graphqlPath));
+                        console.log("\uD83D\uDE80 Server ready at  https://contact-api-expectoo.herokuapp.com".concat(server.graphqlPath));
                         return [2 /*return*/];
                 }
             });
