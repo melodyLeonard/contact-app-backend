@@ -9,6 +9,6 @@ export const hashPassword = async(password:string):Promise<string> =>{
 export const validPassword = async({password, salt}:{password:string, salt:string}):Promise<boolean> =>{
     const hash = await pbkdf2Sync(password, 
     salt, 1000, 64, `sha512`).toString(`hex`);
-    return hash === hash;
+    return hash === salt;
 };
   
