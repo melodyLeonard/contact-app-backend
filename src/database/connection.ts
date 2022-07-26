@@ -2,9 +2,9 @@ import {DataSource} from 'typeorm';
 
     export const AppDataSource = new DataSource({
       type: "postgres",
-      database: "contact",
-      username: "postgres", // fill this with your username
-      password: "postgres", // and password
+      database: "d2pu4r2hf51vo9",
+      username: "kumftsbsclqfmz", // fill this with your username
+      password: "90f87aeb11dc269ecd9c24c0a2e46fed3eef7a0cc14a6d0f705150957879349a", // and password
       port: 5432, // and port
       host: "localhost", // and host
       entities: ["./src/entities/*{.ts,.js}"],
@@ -12,7 +12,7 @@ import {DataSource} from 'typeorm';
       migrations: [],
       synchronize: true,
       logger: "advanced-console",
-      logging: "all",
+      logging: false,
       dropSchema: false,
       cache: true,
     });
